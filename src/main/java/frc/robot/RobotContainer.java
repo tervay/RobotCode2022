@@ -22,6 +22,7 @@ import frc.robot.commands.AutoIndex;
 import frc.robot.commands.DriveWithJoysticks;
 import frc.robot.commands.FiveCargoAuto;
 import frc.robot.commands.FourCargoAuto;
+import frc.robot.commands.OldCharacterizationCommand;
 import frc.robot.commands.OneCargoAuto;
 import frc.robot.commands.PrepareShooter;
 import frc.robot.commands.RunIntake;
@@ -243,6 +244,10 @@ public class RobotContainer {
             new SysIdCommand(flywheels,
                 volts -> flywheels.runVoltage(0.0, volts),
                 flywheels::getLittleSysIdData)));
+
+    autoRoutineMap.put("Run Old Drive Characterization",
+        new AutoRoutine(AutoPosition.ORIGIN,
+            new OldCharacterizationCommand(drive)));
 
     // Alert if in tuning mode
     if (Constants.tuningMode) {
